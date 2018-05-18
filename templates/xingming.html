@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block navbar %}
+{% endblock %}
+ {% block page_content %}
+<div class="page-header">
+       {% for jsfile_name in script_list %}
+        <script src="{{ host }}/{{ jsfile_name }}.js"></script>
+    {% endfor %}
+
+  {{ myechart|safe }}
+</div>
+{{ wtf.quick_form(form) }}
+{% endblock %}
